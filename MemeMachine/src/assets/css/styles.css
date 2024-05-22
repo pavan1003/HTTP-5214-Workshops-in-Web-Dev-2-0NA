@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*************************************************************
+ * TABLE OF CONTENTS
+ * =================
+ * 1. GENERAL/DEFAULT STYLES
+ * 2. HEADER
+ * -- 2a. Site name and logo
+ * -- 2b. Navigation
+ * 3. MAIN CONTENT
+ * -- 3a. Hero
+ * -- 3b. Perfume section
+ * 4. FOOTER
+ *************************************************************/
+
+/* 1. GENERAL/DEFAULT STYLES */
+:root {
+  --accent-color: #E0376A;
+  --secondary-color: #000;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+p {
+  margin: 10px 0;
+}
+
+body {
+  font: 300 16px "Raleway", sans-serif;
+  margin: 0;
+}
+
+.content-wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.container {
+  margin: auto;
+}
+
+.main-content {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+}
+
+.meme-image {
+  width: 500px;
+  height: 80%;
+  padding: 5px;
+  border: 15px solid #000;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
