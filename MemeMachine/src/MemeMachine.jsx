@@ -36,8 +36,8 @@ const MemeMachine = () => {
         },
       });
 
-      const memeUrl = response.data[0].data.children[0].data.url;
-      setMeme(memeUrl);
+      setMemeTitle(response.data[0].data.children[0].data.title)
+      setMeme(response.data[0].data.children[0].data.url)
     } catch (error) {
       console.error("Error fetching meme: ", error);
     } finally {
