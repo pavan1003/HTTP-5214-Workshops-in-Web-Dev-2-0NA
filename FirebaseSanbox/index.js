@@ -36,7 +36,7 @@ onValue(messages, (snapshot) => {
     console.log(childSnapshot.val());
     let childData = childSnapshot.val();
 
-    let text = document.createTextNode(childData.messages);
+    let text = document.createTextNode(childData.message);
     let li = document.createElement("li");
     li.appendChild(text);
     ul.appendChild(li);
