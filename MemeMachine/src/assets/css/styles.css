@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Honk&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
 /*************************************************************
  * TABLE OF CONTENTS
@@ -6,7 +6,6 @@
  * 1. GENERAL/DEFAULT STYLES
  * 2. HEADER
  * -- 2a. Site name and logo
- * -- 2b. Navigation
  * 3. MAIN CONTENT
  * -- 3a. Hero
  * -- 3b. Perfume section
@@ -14,9 +13,11 @@
  *************************************************************/
 
 /* 1. GENERAL/DEFAULT STYLES */
+
 :root {
-  --accent-color: #E0376A;
-  --secondary-color: #000;
+  --primary-color: #71c9ce;
+  --accent-color: #FFF;
+  --secondary-color: #291C3A;
 }
 
 html {
@@ -27,26 +28,64 @@ html {
   box-sizing: inherit;
 }
 
-h1, h2, h3 {
+body {
+  font: 400 18px/normal "Nunito Sans", sans-serif;
   margin: 0;
+  background-color: #E1EBED;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
 }
 
 p {
-  margin: 10px 0;
-}
-
-body {
-  font: 300 16px "Raleway", sans-serif;
   margin: 0;
 }
 
 .content-wrapper {
-  max-width: 1300px;
-  margin: 0 auto;
+  padding: 0 95px 0 96px;
 }
 
-.container {
-  margin: auto;
+/* 2. HEADER */
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: wrap;
+  background-color: var(--primary-color);
+}
+
+/* -- 2a. Site logo and Name */
+
+#site-logo img {
+  width: 80px;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px 0;
+}
+
+#site-name {
+  font-family: "Honk", system-ui;
+  padding-left: 10px;
+  font-size: 52px;
+  color: white;
+  letter-spacing: 2px;
+}
+
+/* Main Content */
+
+.main-content-wrapper {
+  display: flex;
+  margin: 20px 0px;
+  padding: 0 95px 0 96px;
+  min-height: 74vh;
+  justify-content: center;
 }
 
 .main-content {
@@ -55,7 +94,6 @@ body {
   justify-content: center;
   display: flex;
   flex-flow: column;
-  flex-wrap: wrap;
 }
 
 .meme-image {
@@ -63,20 +101,146 @@ body {
   height: 80%;
   padding: 5px;
   border: 15px solid #000;
-  margin: 20px 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-button {
-  background-color: #007bff;
-  color: white;
+.btn {
+  padding: 0.6em 2em;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
+  outline: none;
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+  background: #111;
   cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
-button:hover {
-  background-color: #0056b3;
+.btn:before {
+  content: "";
+  background: linear-gradient(45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-btn 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+/* Animations */
+
+@keyframes glowing-btn {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.btn:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.loader {
+  border: 10px solid var(--accent-color);
+  border-top: 10px solid var(--secondary-color);
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1.5s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 8. FOOTER */
+#footer {
+  display: flex;
+  justify-content: center;
+  background-color: #393e46;
+  color: #eeeeee;
+  padding: 18px;
+}
+
+/* 5. MEDIA QUERIES */
+
+@media screen and (max-width:768px) {
+  body {
+    font-size: 18px;
+  }
+
+  #header #site-name {
+    font-size: 40px;
+  }
+
+  #header #site-logo img {
+    width: 75px;
+  }
+
+  .meme-image {
+    width: 450px;
+  }
+
+  .btn {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width:576px) {
+  body {
+    font-size: 16px;
+  }
+
+  #header #site-name {
+    font-size: 35px;
+  }
+
+  #header #site-logo img {
+    width: 70px;
+  }
+
+  .meme-image {
+    width: 400px;
+  }
 }
